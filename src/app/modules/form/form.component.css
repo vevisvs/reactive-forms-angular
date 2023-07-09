@@ -69,3 +69,15 @@ img{
 }
 
 
+@media screen and (max-width: 800px){
+  .container-login{
+    flex-direction: column;
+    height: 850px;
+    width: 100%;
+  }
+
+  .ctn-contact-form, img{
+    height: 50%;
+    width: 100%;
+  }
+}
