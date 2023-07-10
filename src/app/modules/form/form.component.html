@@ -1,31 +1,59 @@
 <div class="container-login">
   <img src="./../../../assets/foto-form.png">
-    <div class="ctn-contact-form">
+    <form class="ctn-contact-form" [formGroup]="user">
       <h1>Creá tu cuenta</h1>
-      <form class="contact-form-div">
+      <div class="contact-form-div">
         <div class="data-user">
           <input
+            formControlName="name"
             type="text"
             placeholder="Nombre"
           >
+          <span *ngIf="(user.controls['name'].touched && user.controls['name']?.errors?.['required'])">
+            El nombre es obligatorio
+          </span>
+          <span *ngIf="(user.controls['name'].touched && user.controls['name']?.invalid)">
+            El nombre debe tener más de 2 letras
+          </span>
           <input
+            formControlName="lastname"
             type="text"
             placeholder="Apellido"
           >
+          <span *ngIf="(user.controls['lastname'].touched && user.controls['lastname']?.errors?.['required'])">
+            El apellido es obligatorio
+          </span>
         </div>
         <div class="data-login">
           <input
+            formControlName="email"
             type="email"
             placeholder="example@email.com"
           >
+          <span *ngIf="(user.controls['email'].touched && user.controls['email']?.errors?.['required'])">
+            El email es obligatorio
+          </span>
+          <span *ngIf="(user.controls['email'].touched && user.controls['email']?.invalid)">
+            El email debe tener un formato válido
+          </span>
           <input
+            formControlName="password"
             type="text"
             placeholder="Contraseña"
           >
+          <span *ngIf="(user.controls['password'].touched && user.controls['password']?.errors?.['required'])">
+            La contraseña es obligatoria
+          </span>
+          <span *ngIf="(user.controls['password'].touched && user.controls['password']?.invalid)">
+            La contraseña debe tener más de 5 caracteres
+          </span>
         </div>
-      </form>
-    <button>Crear cuenta</button>
-  </div>
+      </div>
+      <main class="finalMessage" *ngIf="incompleteForm">
+        <p>¡Todos los campos del formulario deben estar llenos!</p>
+      </main>
+    <button type="submit" (click)="submitForm()">Crear cuenta</button>
+  </form>
 </div>
 
 

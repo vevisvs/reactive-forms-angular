@@ -68,6 +68,19 @@ img{
   object-fit: cover;
 }
 
+span{
+  color: rgb(146, 7, 7);
+  font-size: 0.7rem;
+}
+
+.finalMessage{
+  color: rgb(146, 7, 7);
+  font-size: 0.8rem;
+  font-weight: 500;
+  display: flex;
+  text-align: center;
+}
+
 
 @media screen and (max-width: 800px){
   .container-login{
